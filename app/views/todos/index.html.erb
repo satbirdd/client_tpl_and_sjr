@@ -1,0 +1,29 @@
+<h1>Listing Todos</h1>
+
+<table>
+  <tbody>
+    <% @todos.each do |todo| %>
+      <%= render todo %>
+    <% end %>
+  </tbody>
+</table>
+
+<%= render partial: "form", locals: { todo: Todo.new } %>
+
+<%= render "javascript_template" %>
+
+<script type="text/javascript">
+  $(function() {
+    var $tbody = $('tbody');
+
+    $("form").on("ajax:success", function(e, data, status, xhr) {
+      var html = template()(data);
+      $tbody.append(html);
+      $("form")[0].reset();
+    });
+
+    function template() {
+      return _.template($("#todo-template").html());
+    }
+  });
+</script>

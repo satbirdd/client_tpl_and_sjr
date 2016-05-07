@@ -1,0 +1,23 @@
+<% id_placeholder = "id-placeholder" %>
+<script type="text/template" id="todo-template">
+  <tr>
+    <td>{{ title }}</td>
+    <td>{{ status }}</td>
+    <td>{{ description }}</td>
+    <td><%= link_to 'Show', todo_path(id_placeholder) %></td>
+    <td><%= link_to 'Edit', edit_todo_path(id_placeholder) %></td>
+    <td><%= link_to 'Destroy', todo_path(id_placeholder), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+</script>
+
+<script type="text/javascript">
+  $(function() {
+    configTodoTemplate('<%= id_placeholder %>');
+
+    function configTodoTemplate(idPlaceholder) {
+      var re = new RegExp(idPlaceholder, 'g');
+      var html = $('#todo-template').html().replace(re, "{{ id }}");
+      $("#todo-template").html(html);
+    }
+  });
+</script>
