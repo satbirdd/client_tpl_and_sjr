@@ -1,0 +1,11 @@
+<% if @todo.errors.blank? %>
+  (function() {
+    var html = "<%= j(render partial: 'todo', locals: { todo: @todo }) %>";
+    $("tbody").append(html);
+  })();
+<% else %>
+  (function() {
+    var form = "<%= j(render partial: 'form', locals: { todo: @todo }) %>";
+    $('form').replaceWith(form);
+  })();
+<% end %>

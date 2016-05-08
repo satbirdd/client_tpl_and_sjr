@@ -15,4 +15,9 @@
 //= require turbolinks
 //= require underscore
 //= require underscore_template
+//= require paloma
 //= require_tree .
+
+$(document).ready(function(){
+  Paloma.start();
+});

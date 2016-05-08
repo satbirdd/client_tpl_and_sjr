@@ -9,15 +9,3 @@
     <td><%= link_to 'Destroy', todo_path(id_placeholder), method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 </script>
-
-<script type="text/javascript">
-  $(function() {
-    configTodoTemplate('<%= id_placeholder %>');
-
-    function configTodoTemplate(idPlaceholder) {
-      var re = new RegExp(idPlaceholder, 'g');
-      var html = $('#todo-template').html().replace(re, "{{ id }}");
-      $("#todo-template").html(html);
-    }
-  });
-</script>
