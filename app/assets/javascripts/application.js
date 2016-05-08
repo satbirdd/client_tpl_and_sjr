@@ -15,4 +15,5 @@
 //= require turbolinks
 //= require underscore
 //= require underscore_template
+//= require paloma
 //= require_tree .
